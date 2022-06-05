@@ -25,14 +25,14 @@ public class Calculator extends JFrame {
       this.setTitle("계산기");//제목
       Image picture = Toolkit.getDefaultToolkit().getImage("calculator.gif");
       this.setIconImage(picture);
-      this.setBounds(100,100,400,500);
+      this.setBounds(120,120,450,550);
       this.setLayout(new BorderLayout());
       JTextField display = new JTextField("0");
-      display.setFont(new Font("궁서체", Font.BOLD, 50));
+      display.setFont(new Font("고딕체", Font.BOLD, 100));
       display.setHorizontalAlignment(JTextField.RIGHT);
       JPanel panel = new JPanel();
       panel.setLayout(new GridLayout(4, 4));
-      JLabel status = new JLabel("계산기 입니다.");
+      JLabel status = new JLabel("21112820 김승현의 계산기 입니다.");
       
       
       for (int i = 7; i < 10; i++) {
@@ -48,13 +48,15 @@ public class Calculator extends JFrame {
          panel.add(btn);
       }
       
-      JButton btnmultiply = new JButton("×");
-      btnmultiply.addActionListener(e->{
+      JButton btnPlus = new JButton("+");
+      btnPlus.addActionListener(e->{
          op1 = Double.parseDouble(display.getText());
          display.setText("0");
-         operator = "×";
+         operator = "+";
+         status.setText(String.valueOf(op1 + "+"));
       });
-      panel.add(btnmultiply);
+      
+      panel.add(btnPlus);
       
       for (int i = 4; i < 7; i++) {
           JButton btn = new JButton("" + i);
@@ -69,14 +71,14 @@ public class Calculator extends JFrame {
           panel.add(btn);
        }
       
-      JButton btnPlus = new JButton("+");
-      btnPlus.addActionListener(e->{
+      JButton btnmultiply = new JButton("×");
+      btnmultiply.addActionListener(e->{
          op1 = Double.parseDouble(display.getText());
          display.setText("0");
-         operator = "+";
-         status.setText(String.valueOf(op1 + "+"));
+         operator = "×";
       });
-      panel.add(btnPlus);
+     
+      panel.add(btnmultiply);
       
       for (int i = 1; i < 4; i++) {
           JButton btn = new JButton("" + i);
